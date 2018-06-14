@@ -11,3 +11,5 @@ Save something: <%= text_input f, :hello, value: @hello %>
 <li><%= item %></li>
 <% end %>
 </ol>
+
+<p>7</p>
