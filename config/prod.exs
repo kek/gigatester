@@ -65,3 +65,20 @@ config :logger, level: :info
 config :gigatester, GigatesterWeb.Endpoint,
   secret_key_base:
     "A very secret key consists of at least 64 bites. Cookie store expects it. It must be very, very much long. Many bites."
+
+    
+config :gigatester, GigatesterWeb.Endpoint,
+  load_from_system_env: true,
+  # http: [port: {:system, "PORT"}], # Uncomment this line if you are running Phoenix 1.2
+  server: true, # Without this line, your app will not start the web server!
+  secret_key_base: "${SECRET_KEY_BASE}",
+  url: [host: "example.com", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json"
+
+config :gigatester, GigatesterWeb.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: "${DATABASE_URL}",
+  database: "",
+  ssl: true,
+  pool_size: 1 # Free tier db only allows 1 connection
+
